@@ -28,7 +28,7 @@ while(j==0):
 
 #To input the time and task
 for i in range(len(days)):
-    for j in range(len(no_of_tasks)-1):
+    for j in range(no_of_tasks[i]):
         t = input("Enter the time on "+days[i]+": ")
         keys.append(t)
         w = input("Enter the task: ")
