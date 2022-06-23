@@ -7,7 +7,7 @@ keys = []
 task = []
 no_of_tasks=[]
 
-n=int(input("Enter number of days between 1 to 7: "))
+n=int(input("Enter number of days from 1 to 7: "))
 days=[]
 
 if(n>0 and n<=7):
@@ -17,7 +17,7 @@ if(n>0 and n<=7):
         num = int(input("enter the number of tasks on " + days[i]+": "))
         no_of_tasks.append(num)
 else:
-        print("Please input number of days between 1-7!!")
+        print("Please input number of days from 1-7!!")
 
 for i in range(len(days)):
     for j in range(len(no_of_tasks)-1):
