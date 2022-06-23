@@ -9,19 +9,14 @@ task = []
 days=[]
 no_of_tasks=[]
 
-<<<<<<< HEAD
 #To input number of days,day and number of tasks for that day.
 j=0
 while(j==0):
-    n=int(input("Enter number of days between 1 to 7: "))
+    n=int(input("Enter number of days from 1 to 7: "))
 
     if(n<0 or n>7):
-        print("Invalid")
+        print("Invalid. Please do as stated above!!!")
         continue 
-=======
-n=int(input("Enter number of days from 1 to 7: "))
-days=[]
->>>>>>> 7fc0ae02df1cf3f925d324570bca425823593a79
 
     for i in range(n):
         day=input("Enter day: ")
@@ -29,12 +24,7 @@ days=[]
         days.append(day)
         num = int(input("enter the number of tasks on " + days[i]+": "))
         no_of_tasks.append(num)
-<<<<<<< HEAD
         j=1
-=======
-else:
-        print("Please input number of days from 1-7!!")
->>>>>>> 7fc0ae02df1cf3f925d324570bca425823593a79
 
 #To input the time and task
 for i in range(len(days)):
