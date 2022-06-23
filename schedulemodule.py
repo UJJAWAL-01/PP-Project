@@ -2,34 +2,46 @@ import time
 import schedule
 from notifypy import Notify
 
-work_list = {}
+timetable = {}
 keys = []
-values = []
+task = []
+no_of_tasks=[]
 
-tasks = int(input("enter the number of tasks: "))
+n=int(input("Enter number of days between 1 to 7: "))
+days=[]
 
-for i in range(tasks):
-    t = input("Enter the time: ")
-    keys.append(t)
-    w = input("Enter the task: ")
-    values.append(w)
+if(n>0 and n<=7):
+    for i in range(n):
+        day=input("Enter day: ")
+        days.append(day)
+        num = int(input("enter the number of tasks on " + days[i]+": "))
+        no_of_tasks.append(num)
+else:
+        print("Please input number of days between 1-7!!")
+
+for i in range(len(days)):
+    for j in range(len(no_of_tasks)-1):
+        t = input("Enter the time on "+days[i]+": ")
+        keys.append(t)
+        w = input("Enter the task: ")
+        task.append(w)
 
 for i in range(len(keys)):
-    work_list[keys[i]] = values[i]
-print(work_list)
+    timetable[keys[i]] = task[i]
+
 
 for i in range(len(keys)):
-    print("You have "+ keys[i] +" in " + values[i])
+    print("You have "+ task[i] +" in " + keys[i])
 
-def timetable():
+def notification(task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "
+    notification.message = "It is time for your "+task
     notification.send()
 
 i=0
 while i<len(keys):
-    schedule.every().day.at(keys[i]).do(timetable)
+    schedule.every().day.at(keys[i]).do(notification,task[i])
     i=i+1
 
 
