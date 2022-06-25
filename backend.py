@@ -4,7 +4,7 @@ from notifypy import Notify
 
 #Made Lists and Dictionary to store date,time,tasks and number of tasks
 timetable = {}
-keys = []
+task_time = []
 task = []
 days=[]
 no_of_tasks=[]
@@ -30,17 +30,17 @@ while(j==0):
 for i in range(len(days)):
     for j in range(no_of_tasks[i]):
         t = input("Enter the time on "+days[i]+": ")
-        keys.append(t)
+        task_time.append(t)
         w = input("Enter the task: ")
         task.append(w)
 
 #Storing time and task values in dictionary
-for i in range(len(keys)):
-    timetable[keys[i]] = task[i]
+for i in range(len(task_time)):
+    timetable[task_time[i]] = task[i]
 
 
-for i in range(len(keys)):
-    print("You have "+ task[i] +" in " + keys[i])
+for i in range(len(task_time)):
+    print("You have "+ task[i] +" in " + task_time[i])
 
 #Function for notification
 def notification(task):
@@ -51,8 +51,8 @@ def notification(task):
 
 #Scheduling notifications
 i=0
-while i<len(keys):
-    schedule.every().day.at(keys[i]).do(notification,task[i])
+while i<len(task_time):
+    schedule.every().day.at(task_time[i]).do(notification,task[i])
     i=i+1
 
 
