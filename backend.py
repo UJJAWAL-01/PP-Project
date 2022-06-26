@@ -22,7 +22,7 @@ while(j==0):
         day=input("Enter day: ")
         day=day.lower()
         days.append(day)
-        num = int(input("enter the number of tasks on " + days[i]+": "))
+        num = int(input("Enter the number of tasks on " + days[i]+": "))
         no_of_tasks.append(num)
         j=1
 
@@ -40,7 +40,7 @@ for i in range(len(task_time)):
 
 
 for i in range(len(task_time)):
-    print("You have "+ task[i] +" in " + task_time[i])
+    print("You have "+ task[i] +" at " + task_time[i])
 
 #Function for notification
 def notification(task):
