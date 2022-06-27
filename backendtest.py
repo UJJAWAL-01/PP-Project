@@ -1,5 +1,7 @@
 import time
 import schedule
+from tkinter import *
+from tkinter.font import BOLD
 from notifypy import Notify
 
 #Made Lists and Dictionary to store date,time,tasks and number of tasks
@@ -34,22 +36,65 @@ saturday={}
 saturday_task=[]
 saturday_time=[]
 
-#To input number of days,day and number of tasks for that day.
-j=0
-while(j==0):
-    n=int(input("Enter number of days from 1 to 7: "))
+win=Tk()
+win.title("Pro Planner")
+win.geometry("800x500")
 
+#Label
+lbl1=Label(win,text="Enter number of days(1-7) ",bg="sky blue",fg="black",width=25,height=2,font=("Arial",11,BOLD))
+lbl1.place(x=20,y=20)
+
+lbl2=Label(win,text="Enter day",bg="sky blue",fg="black",width=25,height=2,font=("Arial",11,BOLD))
+lbl2.place(x=20,y=70)
+
+lbl2=Label(win,text="Enter number of tasks",bg="sky blue",fg="black",width=25,height=2,font=("arial",11,BOLD))
+lbl2.place(x=20,y=120)
+
+lbl2=Label(win,text="Enter time",bg="sky blue",fg="black",width=25,height=2,font=("arial",11,BOLD))
+lbl2.place(x=20,y=170)
+
+#Entry Box
+
+ent1=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
+ent1.place(x=260,y=20)
+
+ent2=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
+ent2.place(x=260,y=70)
+
+ent3=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
+ent3.place(x=260,y=120)
+
+ent4=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
+ent4.place(x=260,y=170)
+
+
+
+#To input number of days,day and number of tasks for that day.
+def fun():
+    j=0
+    n=int(ent1.get())
     if(n<0 or n>7):
         print("Invalid. Please do as stated above!!!")
-        continue 
+    print(n)
 
-    for i in range(n):
-        day=input("Enter day: ")
-        day=day.lower()
-        days.append(day)
-        num = int(input("enter the number of tasks on " + days[i]+": "))
-        no_of_tasks.append(num)
-        j=1
+    ''' while(j==0):
+        #  n=int(input("Enter number of days from 1 to 7: "))
+        n=int(ent1.get())
+        if(n<0 or n>7):
+            print("Invalid. Please do as stated above!!!")
+            continue 
+
+        for i in range(n):
+            day=input("Enter day: ")
+            day=day.lower()
+            days.append(day)
+            num = int(input("enter the number of tasks on " + days[i]+": "))
+            no_of_tasks.append(num)
+            j=1'''
+#Buttons
+btn= Button(win,text="Submit",width=7,command=fun)
+btn.place(x=75,y=220)
+win.mainloop()
 
 #To input the time and task
 for i in range(len(days)):
@@ -131,7 +176,6 @@ if saturday:
 
 if sunday:
     print("Your timetable for Sunday is ",sunday)
-
 
 #Function for notification
 def monday_notification(monday_task):
@@ -219,7 +263,8 @@ if(sunday):
         schedule.every().sunday.at(sunday_time[i]).do(sunday_notification,sunday_task[i])
         i=i+1
 
-
-while True:
+'''while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(1)'''
+
+
