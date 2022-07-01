@@ -1,270 +1,245 @@
 import time
 import schedule
-from tkinter import *
-from tkinter.font import BOLD
 from notifypy import Notify
+import random
 
 #Made Lists and Dictionary to store date,time,tasks and number of tasks
 days=[]
 no_of_tasks=[]
+rand_task=[]
 
-sunday={}
-sunday_task=[]
-sunday_time=[]
+SUNDAY={}
+SUNDAY_task=[]
+SUNDAY_time=[]
 
-monday={}
-monday_task=[]
-monday_time=[]
+MONDAY={}
+MONDAY_task=[]
+MONDAY_time=[]
 
-tuesday={}
-tuesday_task=[]
-tuesday_time=[]
+TUESDAY={}
+TUESDAY_task=[]
+TUESDAY_time=[]
 
-wednesday={}
-wednesday_task=[]
-wednesday_time=[]
+WEDNESDAY={}
+WEDNESDAY_task=[]
+WEDNESDAY_time=[]
 
-thursday={}
-thursday_task=[]
-thursday_time=[]
+THURSDAY={}
+THURSDAY_task=[]
+THURSDAY_time=[]
 
-friday={}
-friday_task=[]
-friday_time=[]
+FRIDAY={}
+FRIDAY_task=[]
+FRIDAY_time=[]
 
-saturday={}
-saturday_task=[]
-saturday_time=[]
-
-win=Tk()
-win.title("Pro Planner")
-win.geometry("800x500")
-
-#Label
-lbl1=Label(win,text="Enter number of days(1-7) ",bg="sky blue",fg="black",width=25,height=2,font=("Arial",11,BOLD))
-lbl1.place(x=20,y=20)
-
-lbl2=Label(win,text="Enter day",bg="sky blue",fg="black",width=25,height=2,font=("Arial",11,BOLD))
-lbl2.place(x=20,y=70)
-
-lbl2=Label(win,text="Enter number of tasks",bg="sky blue",fg="black",width=25,height=2,font=("arial",11,BOLD))
-lbl2.place(x=20,y=120)
-
-lbl2=Label(win,text="Enter time",bg="sky blue",fg="black",width=25,height=2,font=("arial",11,BOLD))
-lbl2.place(x=20,y=170)
-
-#Entry Box
-
-ent1=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
-ent1.place(x=260,y=20)
-
-ent2=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
-ent2.place(x=260,y=70)
-
-ent3=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
-ent3.place(x=260,y=120)
-
-ent4=Entry(win,bg="white",fg="black",bd=10,font=("Arial",11),width=20)
-ent4.place(x=260,y=170)
-
-
+SATURDAY={}
+SATURDAY_task=[]
+SATURDAY_time=[]
 
 #To input number of days,day and number of tasks for that day.
-def fun():
-    j=0
-    n=int(ent1.get())
+
+j=0
+while(j==0):
+    
+    n=int(input("Enter number of days from 1 to 7: "))
     if(n<0 or n>7):
         print("Invalid. Please do as stated above!!!")
-    print(n)
-
-    ''' while(j==0):
-        #  n=int(input("Enter number of days from 1 to 7: "))
-        n=int(ent1.get())
-        if(n<0 or n>7):
-            print("Invalid. Please do as stated above!!!")
-            continue 
-
-        for i in range(n):
+        continue
+        
+    for i in range(n):
             day=input("Enter day: ")
-            day=day.lower()
+            day=day.upper()
             days.append(day)
-            num = int(input("enter the number of tasks on " + days[i]+": "))
+            num = int(input("enter the number of tasks on " + days[i].upper()+": "))
             no_of_tasks.append(num)
-            j=1'''
-#Buttons
-btn= Button(win,text="Submit",width=7,command=fun)
-btn.place(x=75,y=220)
-win.mainloop()
+            j=1
+
 
 #To input the time and task
+
 for i in range(len(days)):
     for j in range(no_of_tasks[i]):
 
-        if days[i]=="monday":
-            t = input("Enter the time on "+days[i]+": ")
-            monday_time.append(t)
+        if days[i]=="MONDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            MONDAY_time.append(t)
             w = input("Enter the task: ")
-            monday_task.append(w)
-            for k in range(len(monday_time)):
-                monday[monday_time[k]] = monday_task[k]
+            MONDAY_task.append(w)
+            for k in range(len(MONDAY_time)):
+                MONDAY[MONDAY_time[k]] = MONDAY_task[k]
 
-        if days[i]=="tuesday":
-            t = input("Enter the time on "+days[i]+": ")
-            tuesday_time.append(t)
+        if days[i]=="TUESDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            TUESDAY_time.append(t)
             w = input("Enter the task: ")
-            tuesday_task.append(w)
-            for k in range(len(tuesday_time)):
-                tuesday[tuesday_time[k]] = tuesday_task[k]
+            TUESDAY_task.append(w)
+            for k in range(len(TUESDAY_time)):
+                TUESDAY[TUESDAY_time[k]] = TUESDAY_task[k]
 
-        if days[i]=="wednesday":
-            t = input("Enter the time on "+days[i]+": ")
-            wednesday_time.append(t)
+        if days[i]=="WEDNESDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            WEDNESDAY_time.append(t)
             w = input("Enter the task: ")
-            wednesday_task.append(w)
-            for k in range(len(wednesday_time)):
-                wednesday[wednesday_time[k]] = wednesday_task[k]
+            WEDNESDAY_task.append(w)
+            for k in range(len(WEDNESDAY_time)):
+                WEDNESDAY[WEDNESDAY_time[k]] = WEDNESDAY_task[k]
 
-        if days[i]=="thursday":
-            t = input("Enter the time on "+days[i]+": ")
-            thursday_time.append(t)
+        if days[i]=="THURSDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            THURSDAY_time.append(t)
             w = input("Enter the task: ")
-            thursday_task.append(w)
-            for k in range(len(thursday_time)):
-                thursday[thursday_time[k]] = thursday_task[k]
+            THURSDAY_task.append(w)
+            for k in range(len(THURSDAY_time)):
+                THURSDAY[THURSDAY_time[k]] = THURSDAY_task[k]
 
-        if days[i]=="friday":
-            t = input("Enter the time on "+days[i]+": ")
-            friday_time.append(t)
+        if days[i]=="FRIDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            FRIDAY_time.append(t)
             w = input("Enter the task: ")
-            friday_task.append(w)
-            for k in range(len(friday_time)):
-                friday[friday_time[k]] = friday_task[k]
+            FRIDAY_task.append(w)
+            for k in range(len(FRIDAY_time)):
+                FRIDAY[FRIDAY_time[k]] = FRIDAY_task[k]
 
-        if days[i]=="saturday":
-            t = input("Enter the time on "+days[i]+": ")
-            saturday_time.append(t)
+        if days[i]=="SATURDAY":
+            t = input("Enter the time on "+days[i].upper()+": ")
+            SATURDAY_time.append(t)
             w = input("Enter the task: ")
-            saturday_task.append(w)
-            for k in range(len(saturday_time)):
-                saturday[saturday_time[k]] = saturday_task[k]
+            SATURDAY_task.append(w)
+            for k in range(len(SATURDAY_time)):
+                SATURDAY[SATURDAY_time[k]] = SATURDAY_task[k]
 
-        if days[i]=="sunday":
-                t = input("Enter the time on "+days[i]+": ")
-                sunday_time.append(t)
+        if days[i]=="SUNDAY":
+                t = input("Enter the time on "+days[i].upper()+": ")
+                SUNDAY_time.append(t)
                 w = input("Enter the task: ")
-                sunday_task.append(w)
-                for k in range(len(sunday_time)):
-                    sunday[sunday_time[k]] = sunday_task[k]
+                SUNDAY_task.append(w)
+                for k in range(len(SUNDAY_time)):
+                    SUNDAY[SUNDAY_time[k]] = SUNDAY_task[k]
 
-if monday:
-    print("Your timetable for monday is ",monday)
 
-if tuesday:
-    print("Your timetable for tuesday is ",tuesday)
+if MONDAY:
+    print("Your timetable for MONDAY is ",MONDAY)
+if TUESDAY:
+    print("Your timetable for TUESDAY is ",TUESDAY)
+if WEDNESDAY:
+    print("Your timetable for WEDNESDAY is ",WEDNESDAY)
+if THURSDAY:
+    print("Your timetable for THURSDAY is ",THURSDAY)
+if FRIDAY:
+    print("Your timetable for FRIDAY is ",FRIDAY)
+if SATURDAY:
+    print("Your timetable for SATURDAY is ",SATURDAY)
+if SUNDAY:
+    print("Your timetable for SUNDAY is ",SUNDAY)
 
-if wednesday:
-    print("Your timetable for wednesday is ",wednesday)
+# Input other tasks to complete and randomly suggest using random module
+z=0
+while z==0:
+    k=input("Do you have any other assignments to complete(Enter yes or no) : ")
+    k=k.lower()
+    if k=="yes":
+        a=int(input("Enter number of assignments: "))
+        for i in range(a):
+            t=input("Enter tasks: ")
+            rand_task.append(t)
+        print(f"Your extra tasks are these {rand_task}")
+        z=1
+    if k=="no":
+        z=1
+    if k!="yes" and k!="no":
+        print('''Please type "Yes" or "No" ''')
+        continue
 
-if thursday:
-    print("Your timetable for thursday is ",thursday)
+random_num=random.choice(rand_task)
 
-if friday:
-    print("Your timetable for friday is ",friday)
 
-if saturday:
-    print("Your timetable for saturday is ",saturday)
+#Function for notification and random task suggesting
 
-if sunday:
-    print("Your timetable for Sunday is ",sunday)
-
-#Function for notification
-def monday_notification(monday_task):
+def MONDAY_notification(MONDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+monday_task
+    notification.message = "It is time for you to "+ MONDAY_task + " or you can also do " + random_num
     notification.send()
 
-def tuesday_notification(tuesday_task):
+def TUESDAY_notification(TUESDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+tuesday_task
+    notification.message = "It is time for you to "+ TUESDAY_task + " or you can also do " + random_num
     notification.send()
 
-def wednesday_notification(wednesday_task):
+def WEDNESDAY_notification(WEDNESDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+wednesday_task
+    notification.message = "It is time for you to "+ WEDNESDAY_task + " or you can also do " + random_num
     notification.send()
 
-def thursday_notification(thursday_task):
+def THURSDAY_notification(THURSDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+thursday_task
+    notification.message = "It is time for you to " + THURSDAY_task + " or you can also do " + random_num
     notification.send()
 
-def friday_notification(friday_task):
+def FRIDAY_notification(FRIDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+friday_task
+    notification.message = "It is time for you to "+ FRIDAY_task + " or you can also do " + random_num
     notification.send()
 
-def saturday_notification(saturday_task):
+def SATURDAY_notification(SATURDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+saturday_task
+    notification.message = "It is time for you to "+ SATURDAY_task + " or you can also do " + random_num
     notification.send()
 
-def sunday_notification(sunday_task):
+def SUNDAY_notification(SUNDAY_task):
     notification = Notify()
     notification.title = "Productivity Manager"
-    notification.message = "It is time for your "+sunday_task
+    notification.message = "It is time for you to "+ SUNDAY_task + " or you can also do " + random_num
     notification.send()
 
 #Scheduling notifications
-if(monday):
+if(MONDAY):
     i=0
-    while i<len(monday_time):
-        schedule.every().monday.at(monday_time[i]).do(monday_notification,monday_task[i])
+    while i<len(MONDAY_time):
+        schedule.every().monday.at(MONDAY_time[i]).do(MONDAY_notification,MONDAY_task[i])
         i=i+1
 
-if(tuesday):
+if(TUESDAY):
     i=0
-    while i<len(tuesday_time):
-        schedule.every().tuesday.at(tuesday_time[i]).do(tuesday_notification,tuesday_task[i])
+    while i<len(TUESDAY_time):
+        schedule.every().tuesday.at(TUESDAY_time[i]).do(TUESDAY_notification,TUESDAY_task[i])
         i=i+1
 
-if(wednesday):
+if(WEDNESDAY):
     i=0
-    while i<len(wednesday_time):
-        schedule.every().wednesday.at(wednesday_time[i]).do(wednesday_notification,wednesday_task[i])
+    while i<len(WEDNESDAY_time):
+        schedule.every().wednesday.at(WEDNESDAY_time[i]).do(WEDNESDAY_notification,WEDNESDAY_task[i])
         i=i+1
 
-if(thursday):
+if(THURSDAY):
     i=0
-    while i<len(thursday_time):
-        schedule.every().thursday.at(thursday_time[i]).do(thursday_notification,thursday_task[i])
+    while i<len(THURSDAY_time):
+        schedule.every().thursday.at(THURSDAY_time[i]).do(THURSDAY_notification,THURSDAY_task[i])
         i=i+1
 
-if(friday):
+if(FRIDAY):
     i=0
-    while i<len(friday_time):
-        schedule.every().friday.at(friday_time[i]).do(friday_notification,friday_task[i])
+    while i<len(FRIDAY_time):
+        schedule.every().friday.at(FRIDAY_time[i]).do(FRIDAY_notification,FRIDAY_task[i])
         i=i+1
 
-if(saturday):
+if(SATURDAY):
     i=0
-    while i<len(saturday_time):
-        schedule.every().saturday.at(saturday_time[i]).do(saturday_notification,saturday_task[i])
+    while i<len(SATURDAY_time):
+        schedule.every().saturday.at(SATURDAY_time[i]).do(SATURDAY_notification,SATURDAY_task[i])
         i=i+1
 
-if(sunday):
+if(SUNDAY):
     i=0
-    while i<len(sunday_time):
-        schedule.every().sunday.at(sunday_time[i]).do(sunday_notification,sunday_task[i])
+    while i<len(SUNDAY_time):
+        schedule.every().sunday.at(SUNDAY_time[i]).do(SUNDAY_notification,SUNDAY_task[i])
         i=i+1
 
-'''while True:
+while True:
     schedule.run_pending()
-    time.sleep(1)'''
-
-
+    time.sleep(1)
