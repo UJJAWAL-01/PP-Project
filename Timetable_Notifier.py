@@ -228,6 +228,7 @@ def SATURDAY_notification(SATURDAY_task):
 
 def SUNDAY_notification(SUNDAY_task):
     notification = Notify()
+    notification.icon= "icon.ico"
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {SUNDAY_task} \nDo remember to complete the {random_num}"
