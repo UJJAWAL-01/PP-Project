@@ -43,12 +43,11 @@ SATURDAY_time=[]
 j=0
 while(j==0):    
     n=input("Enter number of days from 1 to 7: ")
-    if(n.isalpha()==True):
+    if(n.isnumeric()==False):
         print("Invalid. Please do as stated above!!!")
-        continue
-    if(int(n)<0 or int(n)>7):
-        print("Invalid. Please do as stated above!!!")
-        continue
+        continue 
+    else:
+        n=int(n)
         
     for i in range(int(n)):
             day=input("Enter the day: ")
