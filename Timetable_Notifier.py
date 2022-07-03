@@ -3,6 +3,7 @@ import time
 import schedule
 from notifypy import Notify
 import random
+import pandas as pd
 
 #Made Lists and Dictionary to store date,time,tasks and number of tasks
 days=[]
@@ -69,79 +70,86 @@ while(j==0):
 for i in range(len(days)):
     for j in range(no_of_tasks[i]):
         if days[i]=="MONDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            MONDAY_time.append(t)
-            w = input("Enter the task: ")
-            MONDAY_task.append(w)
-            for k in range(len(MONDAY_time)):
-                MONDAY[MONDAY_time[k]] = MONDAY_task[k]
-
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                MONDAY_time.append(t)
+                w = input("Enter the task: ")
+                MONDAY_task.append(w)
+                MONDAY["Time "]=MONDAY_time
+                MONDAY["  Task"]=MONDAY_task
+        
         if days[i]=="TUESDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            TUESDAY_time.append(t)
-            w = input("Enter the task: ")
-            TUESDAY_task.append(w)
-            for k in range(len(TUESDAY_time)):
-                TUESDAY[TUESDAY_time[k]] = TUESDAY_task[k]
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                TUESDAY_time.append(t)
+                w = input("Enter the task: ")
+                TUESDAY_task.append(w)
+                TUESDAY["Time "]=TUESDAY_time
+                TUESDAY["  Task"]=TUESDAY_task
 
         if days[i]=="WEDNESDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            WEDNESDAY_time.append(t)
-            w = input("Enter the task: ")
-            WEDNESDAY_task.append(w)
-            for k in range(len(WEDNESDAY_time)):
-                WEDNESDAY[WEDNESDAY_time[k]] = WEDNESDAY_task[k]
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                WEDNESDAY_time.append(t)
+                w = input("Enter the task: ")
+                WEDNESDAY_task.append(w)
+                WEDNESDAY["Time "]=WEDNESDAY_time
+                WEDNESDAY["  Task"]=WEDNESDAY_task
 
         if days[i]=="THURSDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            THURSDAY_time.append(t)
-            w = input("Enter the task: ")
-            THURSDAY_task.append(w)
-            for k in range(len(THURSDAY_time)):
-                THURSDAY[THURSDAY_time[k]] = THURSDAY_task[k]
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                THURSDAY_time.append(t)
+                w = input("Enter the task: ")
+                THURSDAY_task.append(w)
+                THURSDAY["Time "]=THURSDAY_time
+                THURSDAY["  Task"]=THURSDAY_task
 
         if days[i]=="FRIDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            FRIDAY_time.append(t)
-            w = input("Enter the task: ")
-            FRIDAY_task.append(w)
-            for k in range(len(FRIDAY_time)):
-                FRIDAY[FRIDAY_time[k]] = FRIDAY_task[k]
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                FRIDAY_time.append(t)
+                w = input("Enter the task: ")
+                FRIDAY_task.append(w)
+                FRIDAY["Time "]=FRIDAY_time
+                FRIDAY["  Task"]=FRIDAY_task
 
         if days[i]=="SATURDAY":
-            t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
-            SATURDAY_time.append(t)
-            w = input("Enter the task: ")
-            SATURDAY_task.append(w)
-            for k in range(len(SATURDAY_time)):
-                SATURDAY[SATURDAY_time[k]] = SATURDAY_task[k]
-
+                t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
+                SATURDAY_time.append(t)
+                w = input("Enter the task: ")
+                SATURDAY_task.append(w)
+                SATURDAY["Time "]=SATURDAY_time
+                SATURDAY["  Task"]=SATURDAY_task
+        
         if days[i]=="SUNDAY":
                 t = input(f"Enter the time for task on {days[i].upper()} (in 24 hour format) : ")
                 SUNDAY_time.append(t)
                 w = input("Enter the task: ")
                 SUNDAY_task.append(w)
-                for k in range(len(SUNDAY_time)):
-                    SUNDAY[SUNDAY_time[k]] = SUNDAY_task[k]
+                SUNDAY["Time "]=SUNDAY_time
+                SUNDAY["  Task"]=SUNDAY_task
 
-        if days[i]!="MONDAY" and days[i]!="TUESDAY" and days[i]!="WEDNESDAY" and days[i]!="THURSDAY" and days[i]!="FRIDAY" and days[i]!="SATURDAY" and days[i]!="SUNAY":
+        if days[i]!="MONDAY" and days[i]!="TUESDAY" and days[i]!="WEDNESDAY" and days[i]!="THURSDAY" and days[i]!="FRIDAY" and days[i]!="SATURDAY" and days[i]!="SUNDAY":
             print(days[i]+ ": This day of the week does not exist!!!")
 
 
 if MONDAY:
-    print("Your timetable for MONDAY is ",MONDAY)
+    dfmon=pd.DataFrame(MONDAY)
+    print(f"\n\nYour time table for MONDAY is: \n{dfmon}")
 if TUESDAY:
-    print("Your timetable for TUESDAY is ",TUESDAY)
+    dftue=pd.DataFrame(TUESDAY)
+    print(f"\n\nYour time table for TUESDAY is: \n{dftue}")
 if WEDNESDAY:
-    print("Your timetable for WEDNESDAY is ",WEDNESDAY)
+    dfwed=pd.DataFrame(WEDNESDAY)
+    print(f"\n\nYour time table for WEDNESDAY is: \n{dfwed}")
 if THURSDAY:
-    print("Your timetable for THURSDAY is ",THURSDAY)
+    dfthur=pd.DataFrame(THURSDAY)
+    print(f"\n\nYour time table for THURSDAY is: \n{dfthur}")
 if FRIDAY:
-    print("Your timetable for FRIDAY is ",FRIDAY)
+    dffri=pd.DataFrame(FRIDAY)
+    print(f"\n\nYour time table for FRIDAY is: \n{dffri}")
 if SATURDAY:
-    print("Your timetable for SATURDAY is ",SATURDAY)
-if SUNDAY:
-    print("Your timetable for SUNDAY is ",SUNDAY)
+    dfsat=pd.DataFrame(SATURDAY)
+    print(f"\n\nYour time table for SATURDAY is: \n{dfsat}")
+if SUNDAY:    
+    dfsun=pd.DataFrame(SUNDAY)
+    print(f"\n\nYour time table for SUNDAY is: \n{dfsun}")
 
 # Input extra assignments to complete and randomly suggest using random module.
 
@@ -168,7 +176,7 @@ random_num=random.choice(rand_task)
 
 def MONDAY_notification(MONDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {MONDAY_task} \nDo remember to complete {random_num}"
@@ -178,7 +186,7 @@ def MONDAY_notification(MONDAY_task):
 
 def TUESDAY_notification(TUESDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {TUESDAY_task} \nDo remember to complete the {random_num}"
@@ -188,7 +196,7 @@ def TUESDAY_notification(TUESDAY_task):
 
 def WEDNESDAY_notification(WEDNESDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {WEDNESDAY_task} \nDo remember to complete the {random_num}"
@@ -198,7 +206,7 @@ def WEDNESDAY_notification(WEDNESDAY_task):
 
 def THURSDAY_notification(THURSDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {THURSDAY_task} \nDo remember to complete the {random_num}"
@@ -208,7 +216,7 @@ def THURSDAY_notification(THURSDAY_task):
 
 def FRIDAY_notification(FRIDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {FRIDAY_task} \nDo remember to complete the {random_num}"
@@ -218,7 +226,7 @@ def FRIDAY_notification(FRIDAY_task):
 
 def SATURDAY_notification(SATURDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {SATURDAY_task} \nDo remember to complete the {random_num}"
@@ -228,7 +236,7 @@ def SATURDAY_notification(SATURDAY_task):
 
 def SUNDAY_notification(SUNDAY_task):
     notification = Notify()
-    notification.icon= "icon.ico"
+     
     notification.title = "Productivity Manager"
     if k=="yes":
         notification.message = f"It is time for {SUNDAY_task} \nDo remember to complete the {random_num}"
