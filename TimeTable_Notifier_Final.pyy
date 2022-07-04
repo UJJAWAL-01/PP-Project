@@ -45,9 +45,10 @@ while(j==0):
     n=input("Enter number of days from 1 to 7: ")
     if(n.isnumeric()==False):
         print("Invalid. Please do as stated above!!!")
-        continue 
-    else:
-        n=int(n)
+        continue
+    if(int(n)<0 or int(n)>7):
+        print("Invalid. Please do as stated above!!!")
+        continue
         
     for i in range(int(n)):
             day=input("Enter the day: ")
@@ -131,27 +132,21 @@ for i in range(len(days)):
 if MONDAY:
     dfmon=pd.DataFrame(MONDAY)
     print(f"\n\nYour time table for MONDAY is: \n{dfmon}")
-
 if TUESDAY:
     dftue=pd.DataFrame(TUESDAY)
     print(f"\n\nYour time table for TUESDAY is: \n{dftue}")
-
 if WEDNESDAY:
     dfwed=pd.DataFrame(WEDNESDAY)
     print(f"\n\nYour time table for WEDNESDAY is: \n{dfwed}")
-
 if THURSDAY:
     dfthur=pd.DataFrame(THURSDAY)
     print(f"\n\nYour time table for THURSDAY is: \n{dfthur}")
-
 if FRIDAY:
     dffri=pd.DataFrame(FRIDAY)
     print(f"\n\nYour time table for FRIDAY is: \n{dffri}")
-
 if SATURDAY:
     dfsat=pd.DataFrame(SATURDAY)
     print(f"\n\nYour time table for SATURDAY is: \n{dfsat}")
-    
 if SUNDAY:    
     dfsun=pd.DataFrame(SUNDAY)
     print(f"\n\nYour time table for SUNDAY is: \n{dfsun}")
